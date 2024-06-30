@@ -1,34 +1,33 @@
-// TODO: Create a function that returns a license badge based on which license is passed in
+// Create a function that returns a license badge based on which license is passed in
 // If there is no license, return an empty string
 function renderLicenseBadge(license) {
-    switch (license) {
-      case 'mit':
-        return '![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)';
-      case 'gpl':
-        return '![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)';
-      case 'apache':
-        return '![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)';
-      case 'mozilla':
-        return '![License: MPL 2.0](https://img.shields.io/badge/License-MPL%202.0-brightgreen.svg)';
-      case 'bsd3':
-        return '![License](https://img.shields.io/badge/License-BSD%203--Clause-blue.svg)';
-      case 'bsd2':
-        return '![License](https://img.shields.io/badge/License-BSD%202--Clause-orange.svg)';
-      case 'cco':
-        return '![License: CC0-1.0](https://img.shields.io/badge/License-CC0%201.0-lightgrey.svg)';
-      case 'eclipse':
-        return '![License](https://img.shields.io/badge/License-EPL%201.0-red.svg)';
-      case 'agpl':
-        return '![License: AGPL v3](https://img.shields.io/badge/License-AGPL%20v3-blue.svg)';
-      case 'lgpl':
-        return '![License: LGPL v3](https://img.shields.io/badge/License-LGPL%20v3-blue.svg)';
-      case 'unlicense':
-        return '![License: Unlicense](https://img.shields.io/badge/license-Unlicense-blue.svg)';
-      default:
-        return '';
-    }
+  switch (license) {
+    case 'mit':
+      return '![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)';
+    case 'gpl':
+      return '![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)';
+    case 'apache':
+      return '![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)';
+    case 'mozilla':
+      return '![License: MPL 2.0](https://img.shields.io/badge/License-MPL%202.0-brightgreen.svg)';
+    case 'bsd3':
+      return '![License](https://img.shields.io/badge/License-BSD%203--Clause-blue.svg)';
+    case 'bsd2':
+      return '![License](https://img.shields.io/badge/License-BSD%202--Clause-orange.svg)';
+    case 'cco':
+      return '![License: CC0-1.0](https://img.shields.io/badge/License-CC0%201.0-lightgrey.svg)';
+    case 'eclipse':
+      return '![License](https://img.shields.io/badge/License-EPL%201.0-red.svg)';
+    case 'agpl':
+      return '![License: AGPL v3](https://img.shields.io/badge/License-AGPL%20v3-blue.svg)';
+    case 'lgpl':
+      return '![License: LGPL v3](https://img.shields.io/badge/License-LGPL%20v3-blue.svg)';
+    case 'unlicense':
+      return '![License: Unlicense](https://img.shields.io/badge/license-Unlicense-blue.svg)';
+    default:
+      return '';
   }
-
+}
 
 // Create a function that returns the license link
 // If there is no license, return an empty string
@@ -61,62 +60,51 @@ function renderLicenseLink(license) {
   }
 }
 
-
-
-// TODO: Create a function that returns the license section of README
+// Create a function that returns the license section of README
 // If there is no license, return an empty string
 function renderLicenseSection(license) {
-  if(!license) {
+  if (!license) {
     return '';
   } else {
-    return `#License
-    ${data.license}: ${renderLicenseLink(license)}`
+    return `## License
+This project is licensed under the ${license} - see the [LICENSE](${renderLicenseLink(license)}) file for details.`;
   }
 }
 
-// TODO: Create a function to generate markdown for README
+// Create a function to generate markdown for README
 function generateMarkdown(data) {
   return `# ${data.title}
 
-  ${renderLicenseBadge(data.license)}
+${renderLicenseBadge(data.license)}
 
-  ## Description
-  ${data.description}
+## Description
+${data.description}
 
-  ## Table of Contents
-  WHEN I click on the links in the Table of Contents
-  THEN I am taken to the corresponding section of the README
-  - [Description](#description)
-  - [Table of Contents](#table-of-contents)
-  - [Installation](#installation)
-  - [Usage](#usage) 
-  - [Contributing](#contributing)
-  - [Tests](#tests)
-  - [Questions](#questions)
-  - [License](#license)
+## Table of Contents
+- [Description](#description)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Contributing](#contributing)
+- [Tests](#tests)
+- [Questions](#questions)
+- [License](#license)
 
-  ## Installation
-  ${data.installation}
+## Installation
+${data.installation}
 
-  ```
+## Usage
+${data.usage}
 
+## Contributing
+${data.contributing}
 
-  ```
+## Tests
+${data.tests}
 
-  ## Usage
-  ${data.usage}
+## Questions
+Questions or comments? Check out my [GitHub](${data.github}) or shoot me an [email](mailto:${data.email}).
 
-  ## Contributing
-  ${data.contributing}
-
-  ## Tests
-  ${data.tests}
-
-  ## Questions
-  Questions or comments? Check out my [GitHub](${data.github}) or shoot me an [email](mailto:${data.email}).
-
-  ${renderLicenseSection(data.license)}
-
+${renderLicenseSection(data.license)}
 `;
 }
 
