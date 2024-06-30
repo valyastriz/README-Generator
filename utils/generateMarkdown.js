@@ -68,17 +68,17 @@ function renderLicenseSection(license, choices) {
   if (license === '' || license === 'nolicense') {
     return { section: '', tableOfContents: '' };
   } else {
-    const licenseName = choices.find(choice => choice.value === license).name;
+    const licenseName = choices.find(choice => choice.value === license)?.name;
     const licenseSection = `## License
-    This project is licensed under the ${licenseName} - see the [LICENSE](${renderLicenseLink(license)}) file for details.`
+  This project is licensed under the ${licenseName} - see the [LICENSE](${renderLicenseLink(license)}) file for details.`
     const licenseTableOfContents = `\n- [License](#license)`
     return { section: licenseSection, tableOfContents: licenseTableOfContents };
   }
 }
 
 // Create a function to generate markdown for README
-function generateMarkdown(data) {
-  const { section: licenseSection, tableOfContents: licenseTableOfContents } = renderLicenseSection(data.license);
+function generateMarkdown(data, choices) {
+  const { section: licenseSection, tableOfContents: licenseTableOfContents } = renderLicenseSection(data.license, choices);
   return `# ${data.title}
 
 ${renderLicenseBadge(data.license)}
