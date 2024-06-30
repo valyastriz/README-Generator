@@ -42,6 +42,7 @@ const promptUser = () => {
                     { name: 'GNU Affero General Public License (AGPL) v3.0', value: 'agpl' },
                     { name: 'GNU Lesser General Public License (LGPL) v3.0', value: 'lgpl' },
                     { name: 'Unlicense', value: 'unlicense' },
+                    { name: 'No license', value: 'nolicense'}
                 ],
             },
             {
