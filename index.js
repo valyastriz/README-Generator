@@ -3,6 +3,21 @@ const inquirer = require('inquirer');
 const generateMarkdown = require('./utils/generateMarkdown');
 const fs = require('fs').promises;
 
+const choices = [
+    { name: 'MIT License', value: 'mit' },
+    { name: 'GNU General Public License (GPL) v3.0', value: 'gpl' },
+    { name: 'Apache License 2.0', value: 'apache' },
+    { name: 'Mozilla Public License 2.0', value: 'mozilla' },
+    { name: 'BSD 3-Clause License', value: 'bsd3' },
+    { name: 'BSD 2-Clause License', value: 'bsd2' },
+    { name: 'Creative Commons Zero v1.0 Universal (CC0)', value: 'cco' },
+    { name: 'Eclipse Public License 2.0', value: 'eclipse' },
+    { name: 'GNU Affero General Public License (AGPL) v3.0', value: 'agpl' },
+    { name: 'GNU Lesser General Public License (LGPL) v3.0', value: 'lgpl' },
+    { name: 'Unlicense', value: 'unlicense' },
+    { name: 'No license', value: '' }
+  ];
+
 // TODO: Create an array of questions for user input
 const promptUser = () => {
     return inquirer.prompt([
@@ -30,20 +45,7 @@ const promptUser = () => {
                 type: 'list',
                 name: 'license',
                 message: 'Select license type: ',
-                choices: [
-                    { name: 'MIT License', value: 'mit' },
-                    { name: 'GNU General Public License (GPL) v3.0', value: 'gpl' },
-                    { name: 'Apache License 2.0', value: 'apache' },
-                    { name: 'Mozilla Public License 2.0', value: 'mozilla' },
-                    { name: 'BSD 3-Clause License', value: 'bsd3' },
-                    { name: 'BSD 2-Clause License', value: 'bsd2' },
-                    { name: 'Creative Commons Zero v1.0 Universal (CC0)', value: 'cco' },
-                    { name: 'Eclipse Public License 2.0', value: 'eclipse' },
-                    { name: 'GNU Affero General Public License (AGPL) v3.0', value: 'agpl' },
-                    { name: 'GNU Lesser General Public License (LGPL) v3.0', value: 'lgpl' },
-                    { name: 'Unlicense', value: 'unlicense' },
-                    { name: 'No license', value: ''}
-                ],
+                choices: choices,
             },
             {
                 type: 'input',

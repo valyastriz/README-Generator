@@ -64,12 +64,13 @@ function renderLicenseLink(license) {
 
 // Create a function that returns the license section of README
 // If there is no license, return an empty string
-function renderLicenseSection(license) {
-  if (license === '') {
-    return '';
+function renderLicenseSection(license, choices) {
+  if (license === '' || license === 'nolicense') {
+    return { section: '', tableOfContents: '' };
   } else {
+    const licenseName = choices.find(choice => choice.value === license).name;
     const licenseSection = `## License
-    This project is licensed under the ${license} - see the [LICENSE](${renderLicenseLink(license)}) file for details.`
+    This project is licensed under the ${licenseName} - see the [LICENSE](${renderLicenseLink(license)}) file for details.`
     const licenseTableOfContents = `\n- [License](#license)`
     return { section: licenseSection, tableOfContents: licenseTableOfContents };
   }
