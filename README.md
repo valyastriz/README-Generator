@@ -20,8 +20,10 @@ To install the necessary dependencies, run the following command clone the repos
 ## Usage
 To use the application, run the following command: node index.js
 
-## Images
-![Demonstration gif of application in use](./images/demonstration.gif)
+## Demonstration
+You can see a video demonstration [here](https://drive.google.com/file/d/11RzNme88r5TtzvVSo8Qt561k44Pg4bjj/view).
+
+![Demo GIF](./images/demonstration.gif)
 
 ## Contributing
 To contribute to this project, please follow these steps:\n1. Fork the repository.\n2. Create a new branch (git checkout -b feature-branch).\n3. Commit your changes (git commit -m 'Add some feature').\n4. Push to the branch (git push origin feature-branch).\n5. Open a pull request.
